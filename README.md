@@ -13,12 +13,22 @@ meta:
   last_run: "2024-11-09 15:45:00"
 ```
 
-### settings filed
+### settings field
 ```yaml
 settings:
   root_path: "./path/to/"
   module_file: "utils.py"
   retries: 2
   timeout: 5
+
+```
+
+### test_cases field
+```yaml
+test_cases:
+  - function_name: "add"
+    function_description: "Adds two numbers and returns the sum."
+    function_hash: "a1b2c3d4e5f67890abcdef1234567890abcdef1234567890abcdef1234567890"
+    # ここに summary や cases が続く
 
 ```
