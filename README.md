@@ -1,9 +1,5 @@
 # YamlTestPilot
-YamlTestPilot - A YAML-driven testing tool that allows developers to configure, execute, and manage tests entirely via YAML files, automating the testing workflow.
-
-
-YamlTestPilot is a YAML-based testing framework that simplifies the process of creating and managing test cases for Python functions. This framework is designed to eliminate the need for repetitive test scripts by allowing developers to define all necessary test information in a YAML file. Test execution, results tracking, and test history are all managed directly from this file, streamlining the testing workflow.
-
+YamlTestPilot - A YAML-based tool that lets developers define, run, and track Python function tests, eliminating repetitive scripting and streamlining workflows.
 The template YAML file for YamlTestPilot is available [here](https://github.com/Masafuro/YamlTestPilot/blob/main/template.yaml).
 
 ## Features
