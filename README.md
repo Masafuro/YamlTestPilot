@@ -3,4 +3,6 @@ YamlTestPilot - A YAML-driven testing tool that allows developers to configure, 
 
 
 ## Yaml Template
-his site was built using [GitHub Pages](https://pages.github.com/)
+
+[template.yaml](https://github.com/Masafuro/YamlTestPilot/blob/main/template.yaml)
+
