@@ -1,0 +1,51 @@
+meta:
+  name: "Add Function Test Suite"
+  description: "Tests for add function handling various input cases"
+  created_by: "YamlTestPilot Developer"
+  last_run: null
+
+settings:
+  root_path: "./sample_programs/"
+  module_file: "math_functions.py"
+  retries: 1
+  timeout: 2
+
+test_cases:
+  - function_name: "add"
+    function_description: "Adds two numbers and returns the sum."
+    __function_hash__: null
+    
+    summary:
+      - summary_name: "Basic Additions"
+        description: "Tests for typical integer additions"
+        names:
+          - "Addition with Positive Integers"
+          - "Addition with Negative Integers"
+          - "Addition with Zero"
+        cases:
+          - name: "Addition with Positive Integers"
+            arguments: [2, 3]
+            expected_return: 5
+            exception: None
+            __result__:
+              status: null
+              actual_return: null
+              execution_time_ms: null
+
+          - name: "Addition with Negative Integers"
+            arguments: [-2, -3]
+            expected_return: -5
+            exception: None
+            __result__:
+              status: null
+              actual_return: null
+              execution_time_ms: null
+
+          - name: "Addition with Zero"
+            arguments: [0, 5]
+            expected_return: 5
+            exception: None
+            __result__:
+              status: null
+              actual_return: null
+              execution_time_ms: null
