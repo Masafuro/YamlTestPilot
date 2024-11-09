@@ -3,15 +3,18 @@ meta:
   description: Tests for add function handling various input cases
   created_by: YamlTestPilot Developer
   last_run:
+
 settings:
   root_path: ./sample_programs/
   module_file: math_functions.py
   retries: 1
   timeout: 2
+
 test_cases:
 - function_name: add
   function_description: Adds two numbers and returns the sum.
   __function_hash__:
+
   summary:
   - summary_name: Basic Additions
     description: Tests for typical integer additions
@@ -21,32 +24,28 @@ test_cases:
     - Addition with Zero
     cases:
     - name: Addition with Positive Integers
-      arguments:
-      - 2
-      - 3
+      arguments: [2, 3]
       expected_return: 5
       exception: None
       __result__:
-        status: not_executed
+        status: input_from_test
         actual_return:
         execution_time_ms:
+
     - name: Addition with Negative Integers
-      arguments:
-      - -2
-      - -3
+      arguments: [-2, -3]
       expected_return: -5
       exception: None
       __result__:
-        status: not_executed
+        status:
         actual_return:
         execution_time_ms:
+
     - name: Addition with Zero
-      arguments:
-      - 0
-      - 5
+      arguments: [0, 5]
       expected_return: 5
       exception: None
       __result__:
-        status: not_executed
+        status:
         actual_return:
         execution_time_ms:

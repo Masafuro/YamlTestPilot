@@ -1,0 +1,51 @@
+test_cases:
+  - function_name: "add"
+    description: "Adds two numbers and returns the sum."
+    cases:
+      - case_name: "Addition with Positive Integers"
+        arguments: [2, 3]
+        expected_return: 5
+        exception: null
+        __result__:
+          status: null
+          actual_return: null
+          execution_time_ms: null
+
+      - case_name: "Addition with Negative Integers"
+        arguments: [-2, -3]
+        expected_return: -5
+        exception: null
+        __result__:
+          status: null
+          actual_return: null
+          execution_time_ms: null
+
+      - case_name: "Addition with Zero"
+        arguments: [0, 5]
+        expected_return: 5
+        exception: null
+        __result__:
+          status: null
+          actual_return: null
+          execution_time_ms: null
+
+  - function_name: "subtract"
+    description: "Subtracts second number from the first number and returns the result."
+    cases:
+      - case_name: "Subtraction with Positive Integers"
+        arguments: [5, 2]
+        expected_return: 3
+        exception: null
+        __result__:
+          status: null
+          actual_return: null
+          execution_time_ms: null
+
+      - case_name: "Subtraction with Negative Integers"
+        arguments: [-5, -2]
+        expected_return: -3
+        exception: null
+        __result__:
+          status: null
+          actual_return: null
+          execution_time_ms: null

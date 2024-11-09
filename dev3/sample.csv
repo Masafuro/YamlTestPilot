@@ -1,0 +1,6 @@
+function_name,description,case_name,arguments,expected_return,exception,status,actual_return,execution_time_ms
+add,Adds two numbers and returns the sum.,Addition with Positive Integers,"[2, 3]",5,,,,
+add,Adds two numbers and returns the sum.,Addition with Negative Integers,"[-2, -3]",-5,,,,
+add,Adds two numbers and returns the sum.,Addition with Zero,"[0, 5]",5,,,,
+subtract,Subtracts second number from the first number and returns the result.,Subtraction with Positive Integers,"[5, 2]",3,,,,
+subtract,Subtracts second number from the first number and returns the result.,Subtraction with Negative Integers,"[-5, -2]",-3,,,,

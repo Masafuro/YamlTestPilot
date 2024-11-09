@@ -1,96 +1,72 @@
-import yaml
 import yaml_parser
 import test_code_generator
+import test_executor
+from ruamel.yaml import YAML
 import tempfile
 import subprocess
 import os
 import re
 
-def execute_tests_and_collect_results(yaml_data):
+def update_yaml_with_results(yaml_data, test_output):
     """
-    YAMLデータから生成されたテストコードを一時ファイルに保存し、
-    pytestを使って実行し、その結果を標準出力から解析して取得する。
+    pytestの出力結果を解析し、YAMLデータ内の各テストケースに結果を格納する。
     """
-    # テストコードを生成
-    generated_code = test_code_generator.generate_test_code(yaml_data)
+    # 正規表現を使ってpytestの出力から結果を抽出
+    result_pattern = re.compile(r'(\w+)\s+::\s+(test_\w+)\s+\[\d+%\]')
+    passed_cases = []
+    failed_cases = []
 
-    # 一時ファイルにテストコードを書き込む
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".py") as temp_file:
-        temp_file_path = temp_file.name
-        temp_file.write(generated_code.encode())  # バイナリモードで書き込む
+    # pytest出力を解析して結果を取得
+    for line in test_output.splitlines():
+        match = result_pattern.search(line)
+        if match:
+            status, test_name = match.groups()
+            if status == "PASSED":
+                passed_cases.append(test_name)
+            elif status == "FAILED":
+                failed_cases.append(test_name)
 
-    # pytestで一時ファイルのテストを実行し、結果を取得
-    result_data = {}
-    try:
-        result = subprocess.run(["pytest", temp_file_path, "--tb=short", "--disable-warnings"], capture_output=True, text=True)
-        print("Test Output:\n", result.stdout)
-        print("Test Errors:\n", result.stderr)
-        
-        # pytestの標準出力を解析して結果を抽出
-        for line in result.stdout.splitlines():
-            match = re.search(r'(\w+): (test_\w+): (\w+)', line)
-            if match:
-                result_key = match.group(2)  # テスト関数名
-                status = match.group(3)  # 成功または失敗のステータス
-                result_data[result_key] = {
-                    "outcome": status,
-                    "execution_time_ms": None,  # 実行時間は取得できないためNoneを設定
-                    "actual_return": None  # 戻り値は標準出力から取得できないためNoneを設定
-                }
-
-    finally:
-        # 一時ファイルの削除
-        if os.path.exists(temp_file_path):
-            os.remove(temp_file_path)
-
-    return result_data
-
-def update_yaml_with_results(yaml_data, result_data):
-    """
-    テスト結果を元のYAMLデータに格納し、__result__フィールドを更新する。
-    """
-    # 各テスト結果をyaml_data内の該当するテストケースに反映
-    for test_case in yaml_data.get("test_cases", []):
-        function_name = test_case.get("function_name")
-        
-        for summary in test_case.get("summary", []):
-            for case in summary.get("cases", []):
-                # caseの名前と一致するテスト結果を探す
-                case_name = case.get("name")
-                result_key = f"test_{function_name}_{case_name.replace(' ', '_')}"
+    # YAMLデータ内の各テストケースを更新
+    for test_case in yaml_data['test_cases']:
+        for summary in test_case['summary']:
+            for case in summary['cases']:
+                test_function_name = f"test_{test_case['function_name']}_{case['name'].replace(' ', '_')}"
                 
-                # result_dataから結果を取得して反映
-                result_info = result_data.get(result_key, {})
-                if result_info:
-                    case["__result__"]["status"] = result_info.get("outcome")
-                    case["__result__"]["actual_return"] = result_info.get("actual_return")
-                    case["__result__"]["execution_time_ms"] = result_info.get("execution_time_ms")
-                    
-    # デバッグ用の確認出力
-    print("Updated YAML Data with Results:")
-    print(yaml.dump(yaml_data))
+                # テストケースの結果を更新
+                if test_function_name in passed_cases:
+                    case['__result__']['status'] = "passed"
+                elif test_function_name in failed_cases:
+                    case['__result__']['status'] = "failed"
+                else:
+                    case['__result__']['status'] = "not_executed"
 
-def save_yaml(yaml_data, file_path):
+    return yaml_data
+
+def save_updated_yaml(yaml_data, file_path):
     """
-    更新されたYAMLデータを指定されたパスに保存する。
+    更新されたYAMLデータを元のファイルに保存する。
     """
-    with open(file_path, "w") as file:
+    yaml = YAML()
+    yaml.preserve_quotes = True
+    with open(file_path, 'w') as file:
         yaml.dump(yaml_data, file)
-    print(f"YAML data saved to {file_path}")
 
 def main():
-    # YAMLファイルからデータを読み込む
+    # YAMLファイルのパス
     file_path = "sample.yaml"
+    
+    # YAMLファイルを読み込み
     yaml_data = yaml_parser.parse_yaml(file_path)
     
-    # テストを実行し、結果を収集
-    result_data = execute_tests_and_collect_results(yaml_data)
+    # テストを実行し、結果を取得
+    test_output = test_executor.execute_generated_tests(yaml_data)
     
-    # YAMLデータにテスト結果を格納
-    update_yaml_with_results(yaml_data, result_data)
+    # テスト結果でYAMLデータを更新
+    updated_yaml_data = update_yaml_with_results(yaml_data, test_output)
     
-    # YAMLデータをファイルに保存
-    save_yaml(yaml_data, file_path)
+    # 更新されたYAMLデータを保存
+    save_updated_yaml(updated_yaml_data, file_path)
+    print(f"Updated YAML data saved to {file_path}")
 
 if __name__ == "__main__":
     main()
