@@ -1,0 +1,11 @@
+settings:
+  general:
+    version: "1.0"
+    debug: true
+  services:
+    - name: Service1
+      key: abcdef123456
+      active: true
+    - name: Service2
+      key: ghijkl789012
+      active: false

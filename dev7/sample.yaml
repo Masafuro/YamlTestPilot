@@ -2,7 +2,7 @@ meta:
   name: "Add Function Test Suite"
   description: "Tests for add function handling various input cases"
   created_by: "YamlTestPilot Developer"
-  last_run: null
+  last_run:
 
 settings:
   root_path: "./sample_programs/"
@@ -13,8 +13,8 @@ settings:
 test_cases:
   - function_name: "add"
     function_description: "Adds two numbers and returns the sum."
-    __function_hash__: null
-    
+    __function_hash__:
+
     summary:
       - summary_name: "Basic Additions"
         description: "Tests for typical integer additions"
@@ -24,28 +24,31 @@ test_cases:
           - "Addition with Zero"
         cases:
           - name: "Addition with Positive Integers"
-            arguments: [2, 3]
-            expected_return: 5
-            exception: None
+            test_data:
+              - arguments: [2, 3]
+                expected_return: 5
+                exception: None
             __result__:
-              - status: null
-                actual_return: null
-                execution_time_ms: null
+              - status: success2
+                actual_return: 5
+                execution_time_ms: 10
 
           - name: "Addition with Negative Integers"
-            arguments: [-2, -3]
-            expected_return: -5
-            exception: None
+            test_data:
+              - arguments: [-2, -3]
+                expected_return: -5
+                exception: None
             __result__:
-              - status: null
-                actual_return: null
-                execution_time_ms: null
+              - status: success3
+                actual_return: 4
+                execution_time_ms: 1000
 
           - name: "Addition with Zero"
-            arguments: [0, 5]
-            expected_return: 5
-            exception: None
+            test_data:
+              - arguments: [0, 5]
+                expected_return: 5
+                exception: None
             __result__:
-              - status: null
-                actual_return: null
-                execution_time_ms: null
+              - status:
+                actual_return:
+                execution_time_ms:

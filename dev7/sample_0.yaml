@@ -24,27 +24,30 @@ test_cases:
           - "Addition with Zero"
         cases:
           - name: "Addition with Positive Integers"
-            arguments: [2, 3]
-            expected_return: 5
-            exception: None
+            test_data:
+              - arguments: [2, 3]
+                expected_return: 5
+                exception: None
             __result__:
               - status: null
                 actual_return: null
                 execution_time_ms: null
 
           - name: "Addition with Negative Integers"
-            arguments: [-2, -3]
-            expected_return: -5
-            exception: None
+            test_data:
+              - arguments: [-2, -3]
+                expected_return: -5
+                exception: None
             __result__:
               - status: null
                 actual_return: null
                 execution_time_ms: null
 
           - name: "Addition with Zero"
-            arguments: [0, 5]
-            expected_return: 5
-            exception: None
+            test_data:
+              - arguments: [0, 5]
+                expected_return: 5
+                exception: None
             __result__:
               - status: null
                 actual_return: null

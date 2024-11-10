@@ -1,0 +1,11 @@
+settings:
+  general:
+    debug: true
+    version: '1.0'
+  services:
+  - active: true
+    key: hello masafuro yaml
+    name: Service1
+  - active: false
+    key: ghijkl789012
+    name: Service2
