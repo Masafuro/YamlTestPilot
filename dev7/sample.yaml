@@ -1,19 +1,19 @@
 meta:
   name: "Add Function Test Suite"
   description: "Tests for add function handling various input cases"
-  created_by: "YamlTestPilot Developer"
-  last_run:
+  created_by: "Masafuro"
+  last_run: '2024-11-10 22:12:31'
 
 settings:
   root_path: "./sample_programs/"
-  module_file: "math_functions.py"
+  file_name: "math_functions.py"
   retries: 1
   timeout: 2
 
 test_cases:
   - function_name: "add"
     function_description: "Adds two numbers and returns the sum."
-    __function_hash__:
+    __function_hash__: 79f083b4c0d8e34a48b963dd10e6e61d1f435e1653c6fc9b5c094da33b137297
 
     summary:
       - summary_name: "Basic Additions"
