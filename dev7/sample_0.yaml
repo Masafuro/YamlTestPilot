@@ -6,7 +6,7 @@ meta:
 
 settings:
   root_path: "./sample_programs/"
-  module_file: "math_functions.py"
+  file_name: "math_functions.py"
   retries: 1
   timeout: 2
 
@@ -23,7 +23,7 @@ test_cases:
           - "Addition with Negative Integers"
           - "Addition with Zero"
         cases:
-          - name: "Addition with Positive Integers"
+          - case_name: "Addition with Positive Integers"
             test_data:
               - arguments: [2, 3]
                 expected_return: 5
@@ -33,7 +33,7 @@ test_cases:
                 actual_return: null
                 execution_time_ms: null
 
-          - name: "Addition with Negative Integers"
+          - case_name: "Addition with Negative Integers"
             test_data:
               - arguments: [-2, -3]
                 expected_return: -5
@@ -43,7 +43,7 @@ test_cases:
                 actual_return: null
                 execution_time_ms: null
 
-          - name: "Addition with Zero"
+          - case_name: "Addition with Zero"
             test_data:
               - arguments: [0, 5]
                 expected_return: 5

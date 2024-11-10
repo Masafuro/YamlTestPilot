@@ -29,7 +29,7 @@ def update_yaml_test_result(file_path, function_name, summary_name, test_case_na
             for summary in test_case.get('summary', []):
                 if summary.get('summary_name') == summary_name:
                     for case in summary.get('cases', []):
-                        if case.get('name') == test_case_name:
+                        if case.get('case_name') == test_case_name:
                             # __result__に値を更新
                             if case.get('__result__'):
                                 result = case['__result__'][0]
@@ -50,12 +50,12 @@ def main():
     file_path = 'sample.yaml'  # ファイルパスを指定
     function_name = "add"
     summary_name = "Basic Additions"
-    test_case_name = "Addition with Negative Integers"
+    test_case_name = "Addition with Zero"
     
     # 更新したい項目
-    status = "success3"
-    actual_return = 4
-    execution_time_ms = 1000
+    status = "success5"
+    actual_return = 10
+    execution_time_ms = 2000
     
     # 関数を実行してYAMLを更新
     update_yaml_test_result(file_path, function_name, summary_name, test_case_name, 

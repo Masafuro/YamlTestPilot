@@ -13,7 +13,7 @@ settings:
 test_cases:
   - function_name: "add"
     function_description: "Adds two numbers and returns the sum."
-    __function_hash__: 79f083b4c0d8e34a48b963dd10e6e61d1f435e1653c6fc9b5c094da33b137297
+    function_hash: 79f083b4c0d8e34a48b963dd10e6e61d1f435e1653c6fc9b5c094da33b137297
 
     summary:
       - summary_name: "Basic Additions"
@@ -28,7 +28,7 @@ test_cases:
               - arguments: [2, 3]
                 expected_return: 5
                 exception: None
-            __result__:
+            result:
               - status: success2
                 actual_return: 5
                 execution_time_ms: 10
@@ -38,7 +38,7 @@ test_cases:
               - arguments: [-2, -3]
                 expected_return: -5
                 exception: None
-            __result__:
+            result:
               - status: success3
                 actual_return: 4
                 execution_time_ms: 1000
@@ -48,7 +48,7 @@ test_cases:
               - arguments: [0, 5]
                 expected_return: 5
                 exception: None
-            __result__:
+            result:
               - status: success5
                 actual_return: 10
                 execution_time_ms: 2000
