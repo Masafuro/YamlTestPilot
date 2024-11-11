@@ -2,7 +2,9 @@
 YamlTestPilot - A YAML-based tool that lets developers define, run, and track Python function tests, eliminating repetitive scripting and streamlining workflows.
 The template YAML file for YamlTestPilot is available [here](https://github.com/Masafuro/YamlTestPilot/blob/main/template.yaml).
 
-YamlTestPilot - YAML ベースのツールで、開発者が Python 関数のテストを定義、実行、追跡できるようにし、繰り返しのスクリプト作成を排除し、ワークフローを効率化します。YamlTestPilot のテンプレート YAML ファイルは[こちら](https://github.com/Masafuro/YamlTestPilot/blob/main/template.yaml)からご利用いただけます。
+- YamlTestPilotは、YAMLのテキストファイルにテスト情報を記述することで、Python 関数のテストを定義、実行、追跡できるようにする一連のスクリプトセットです。
+- このYAMLファイルはテンプレートをChatGPT等のLLMに読み込ませることによる、AIによるテスト作成を想定しています。
+- YamlTestPilot のテンプレート YAML ファイルは[こちら](https://github.com/Masafuro/YamlTestPilot/blob/main/template.yaml)からご利用いただけます。
 
 ## 特徴
 1. pythonの関数の入出力テストを所定の.yamlファイルの記述を元に実行できる。
