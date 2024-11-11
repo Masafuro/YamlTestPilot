@@ -1,0 +1,74 @@
+functions:
+  - function_name: "add"
+    description: "さまざまなケースにおける加算関数のテスト"
+    test_cases:
+      - description: "正の整数2つを加算できることを確認する"
+        inputs: [2, 3]
+        expected_output: 5
+
+      - description: "負の整数2つを加算できることを確認する"
+        inputs: [-2, -3]
+        expected_output: -5
+
+      - description: "正の整数と負の整数を加算できることを確認する"
+        inputs: [10, -3]
+        expected_output: 7
+
+      - description: "0と他の整数を加算できることを確認する"
+        inputs: [5, 0]
+        expected_output: 5
+
+      - description: "大きな正の整数を加算しても正しく計算できることを確認する"
+        inputs: [1000000000, 2000000000]
+        expected_output: 3000000000
+
+      - description: "小数の加算が可能であることを確認する"
+        inputs: [3.5, 2.2]
+        expected_output: 5.7
+
+      - description: "文字列を入力した際にエラーが発生することを確認する"
+        inputs: ["a", "b"]
+        expected_output: {"error": "TypeError"}
+
+      - description: "片方の引数がNoneである場合にエラーが発生することを確認する"
+        inputs: [None, 5]
+        expected_output: {"error": "TypeError"}
+
+  - function_name: "subtract"
+    description: "さまざまなケースにおける減算関数のテスト"
+    test_cases:
+      - description: "正の整数2つを減算できることを確認する"
+        inputs: [5, 3]
+        expected_output: 2
+
+      - description: "負の整数2つを減算できることを確認する"
+        inputs: [-5, -3]
+        expected_output: -2
+
+      - description: "正の整数から負の整数を引いた場合に正しく計算できることを確認する"
+        inputs: [5, -3]
+        expected_output: 8
+
+      - description: "0を引いた場合の値が変わらないことを確認する"
+        inputs: [5, 0]
+        expected_output: 5
+
+      - description: "同じ数を引いた場合、結果が0になることを確認する"
+        inputs: [10, 10]
+        expected_output: 0
+
+      - description: "大きな正の整数を減算しても正しく計算できることを確認する"
+        inputs: [2000000000, 1000000000]
+        expected_output: 1000000000
+
+      - description: "小数の減算が可能であることを確認する"
+        inputs: [3.5, 2.2]
+        expected_output: 1.3
+
+      - description: "文字列を入力した際にエラーが発生することを確認する"
+        inputs: ["a", "b"]
+        expected_output: {"error": "TypeError"}
+
+      - description: "片方の引数がNoneである場合にエラーが発生することを確認する"
+        inputs: [None, 5]
+        expected_output: {"error": "TypeError"}
