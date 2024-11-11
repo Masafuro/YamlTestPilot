@@ -16,7 +16,7 @@ The template YAML file for YamlTestPilot is available [here](https://github.com/
 2. test_cases内に.pyファイルと同名の.yamlファイル（テスト項目を記述したもの）
 3. test_runner.py
 
-## directory rules
+## フォルダ構造ルール：directory rules
 <pre>
 .
 └── project_root/
