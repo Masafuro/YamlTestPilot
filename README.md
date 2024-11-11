@@ -9,6 +9,11 @@ YamlTestPilot - YAML ベースのツールで、開発者が Python 関数のテ
 2. この.yamlファイルはchatGPTなどのLLMによって記述されることを想定している。
 3. 実行と共に結果は、resultsフォルダに格納される。
 
+### 実行に必要なもの
+1. 所定のフォルダ構造
+2. test_cases内に.pyファイルと同名の.yamlファイル（テスト項目を記述したもの）
+3. test_runner.py
+
 ## directory rules
 <pre>
 .
