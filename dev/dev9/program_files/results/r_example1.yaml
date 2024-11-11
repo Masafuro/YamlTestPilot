@@ -1,9 +1,9 @@
 meta: !!omap
 - target_file_path: ./example1.py
 - file_hash: bf287eb6bef1c90d7c9f2d8795433a1714f056cdb65870a6718c6bb3ab11bc5e
-- start_time: '2024-11-11T15:37:59.339642'
-- end_time: '2024-11-11T15:37:59.377131'
-- total_duration_seconds: 0.037489
+- start_time: '2024-11-11T15:36:22.048422'
+- end_time: '2024-11-11T15:36:22.081181'
+- total_duration_seconds: 0.032759
 - total_tests: 17
 - successful_tests: 15
 functions:
@@ -30,7 +30,7 @@ functions:
     - expected_output: 7
     - actual_output: 7
     - status: Success
-    - execution_time_ms: 0.5860328674316406
+    - execution_time_ms: 0.0
   - !!omap
     - description: 0と他の整数を加算できることを確認する
     - inputs: [5, 0]
