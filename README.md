@@ -26,6 +26,11 @@ YamlTestPilot - YAML ベースのツールで、開発者が Python 関数のテ
 ### 実行例
 
 以下のコマンドで `test_runner.py` を実行し、テストを開始します。
+正しいフォルダ構造になっていれば、.pyファイルが選択できます。エンターキーで選択して実行してください。
 
 ```bash
 python test_runner.py
+
+テスト対象の Python ファイルを選択してください: 
+❯ example1.py
+  test_runner.py
