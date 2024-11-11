@@ -1,74 +1,14 @@
-# テストメタ情報
-meta:
-  name: "Add Function Test Suite"
-  description: "Tests for add function handling various input cases"
-  created_by: "Jane Doe"
-  last_run: "2024-11-09 15:45:00"
+functions:
+  - function_name: "function_name_here"
+    description: "Description of the function's purpose"
+    test_cases:
+      - description: "Description of the test case"
+        inputs: [input1, input2]           # テストに必要な引数をリスト形式で指定
+        expected_output: expected_value     # 期待される出力を指定
 
-# テストの設定情報
-settings:
-  root_path: "./path/to/"
-  module_file: "utils.py"
-  retries: 2
-  timeout: 5
-
-# テストケース一覧
-test_cases:
-  - function_name: "add"
-    function_description: "Adds two numbers and returns the sum."
-    __function_hash__: null
-    
-    summary:
-      - summary_name: "Basic Additions"
-        description: "Basic addition tests with integers and floats."
-        names:
-          - "Addition with Positive Integers"
-          - "Addition with Negative Integers"
-          - "Addition with Mixed Sign Integers"
-          - "Addition with Floats"
-          - "Addition with Large Numbers"
-        cases:
-          - name: "Addition with Positive Integers"
-            arguments: [2, 3]
-            expected_return: 5
-            exception: None
-            __result__:
-              status: null
-              actual_return: null
-              execution_time_ms: null
-
-          - name: "Addition with Negative Integers"
-            arguments: [-4, -6]
-            expected_return: -10
-            exception: None
-            __result__:
-              status: null
-              actual_return: null
-              execution_time_ms: null
-
-      - summary_name: "Edge Case Additions"
-        description: "Edge cases for addition function."
-        names:
-          - "Addition with Zero"
-          - "Addition with Non-numeric Types"
-          - "Addition with None as Input"
-          - "Addition with Missing Argument"
-          - "Addition with Complex Numbers"
-        cases:
-          - name: "Addition with Zero"
-            arguments: [0, 10]
-            expected_return: 10
-            exception: None
-            __result__:
-              status: null
-              actual_return: null
-              execution_time_ms: null
-
-          - name: "Addition with Non-numeric Types"
-            arguments: ["two", 3]
-            expected_return: null
-            exception: "TypeError"
-            __result__:
-              status: null
-              actual_exception: null
-              execution_time_ms: null
+  - function_name: "another_function_name"
+    description: "Description of another function's purpose"
+    test_cases:
+      - description: "Description of another test case"
+        inputs: [input1, input2, input3]    # 必要に応じて引数を追加
+        expected_output: expected_value2
