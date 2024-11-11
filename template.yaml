@@ -5,6 +5,7 @@ functions:
       - description: "Description of the test case"
         inputs: [input1, input2]           # テストに必要な引数をリスト形式で指定
         expected_output: expected_value     # 期待される出力を指定
+        
       - description: "片方の引数がNoneである場合にエラーが発生することを確認する" #日本語もOK
         inputs: [None, 5]
         expected_output: {"error": "TypeError"}　#エラーをキャッチすることが正常の場合の書き方
