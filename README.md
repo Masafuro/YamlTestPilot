@@ -5,14 +5,15 @@ The template YAML file for YamlTestPilot is available [here](https://github.com/
 YamlTestPilot - YAML ベースのツールで、開発者が Python 関数のテストを定義、実行、追跡できるようにし、繰り返しのスクリプト作成を排除し、ワークフローを効率化します。YamlTestPilot のテンプレート YAML ファイルは[こちら](https://github.com/Masafuro/YamlTestPilot/blob/main/template.yaml)からご利用いただけます。
 
 ## directory rules
-project_root/
-├── program_files/
-│   └── example1.py             # テスト対象の Python ファイル
-├── test_cases/
-│   └── example1.yaml            # テストケースを記述した YAML ファイル
-├── results/
-│   └── r_example1.yaml          # テスト結果が出力される YAML ファイル
-└── test_runner.py               # テストを実行するメインスクリプト
+.
+└── project_root/
+    └── program_files/
+        ├── test_runner.py
+        ├── example1.py
+        ├── test_cases/
+        │   └── example1.yaml
+        └── results/
+            └── r_example1.yaml
 
 ## 使用方法 (Usage)
 
