@@ -18,10 +18,10 @@ YamlTestPilot - YAML ベースのツールで、開発者が Python 関数のテ
 </pre>
 ## 使用方法 (Usage)
 
-1. テスト対象の Python ファイル `{program_name}.py` を作成し、`program_files` フォルダに保存します。
-2. テスト仕様を検討し、`{program_name}.yaml` という名前で `test_cases` フォルダにテストケースを記述した YAML ファイルを作成します。
+1. テスト対象の Python ファイル `{program_name}.py` を作成し、`program_files(任意)` フォルダに保存します。
+2. テスト仕様を検討し、`{program_name}.yaml` という名前で `test_cases(固定)` フォルダにテストケースを記述した YAML ファイルを作成します。
 3. `test_runner.py` を実行し、1, 2 で作成したファイルに基づいてテストを実行します。
-4. テスト結果は `results` フォルダに `r_{program_name}.yaml` という名前で保存され、実行結果とテスト全体のメタ情報を含みます。
+4. テスト結果は `results(固定)` フォルダに `r_{program_name}.yaml` という名前で保存され、実行結果とテスト全体のメタ情報を含みます。
 
 ### 実行例
 
